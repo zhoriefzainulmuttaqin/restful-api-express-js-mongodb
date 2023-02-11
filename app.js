@@ -18,12 +18,14 @@ app.use(express.urlencoded({
             process.exit()
         })
 
+// URL/Routes 
 app.get('/', (req, res) => {
     res.json({
         message: "welcome to My Express Tutorial"
     })
 });
 
+//memanggil routes
 require('./app/routes/post.routes')(app)
 
 const PORT = 8000

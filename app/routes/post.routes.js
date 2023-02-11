@@ -1,5 +1,5 @@
 module.exports = (app) => {
-    const post = require('../controllers/post.controller')
+    const post = require('../controllers/post.controller') //memanggil controller post
     const router = require('express').Router()
 
     //GET

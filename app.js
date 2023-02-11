@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 
-const app = express()  //memparsing
+const app = express()  //memparsing / berisikan object express js
 
-app.use(express.json());
+app.use(express.json()); //mendapatkan data json / menentukan ke dalam json
 app.use(express.urlencoded({
     extended: true
     }));
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 require('./app/routes/post.routes')(app)
 
-const PORT = 5000
+const PORT = 8000
 app.listen(PORT, () => {
     console.log(`Server started on http://localhost:${PORT}`);
 });

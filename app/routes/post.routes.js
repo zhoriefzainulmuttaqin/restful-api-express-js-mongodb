@@ -4,6 +4,8 @@ module.exports = (app) => {
 
     //GET
     router.get('/', post.findAll)
+    // POST
+    router.post('/', post.create)
     
     app.use('/api/posts', router);
 }

@@ -8,6 +8,8 @@ module.exports = (app) => {
     router.get('/:id', post.findOne)
     // POST
     router.post('/', post.create)
+    // PUT
+    router.put('/:id', post.update)
     
     app.use('/api/posts', router);
 }

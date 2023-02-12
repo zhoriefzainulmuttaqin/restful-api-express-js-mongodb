@@ -41,3 +41,24 @@ exports.create = (req, res) => {
         })
     });
 }
+
+exports.update = (req, res) => {
+    const id = req.params.id
+
+    Post.findOneAndUpdate(id, req.body)
+    .then((result) => {
+        if(!result) { //jika tidak ada
+            res.status(404).send({
+                message: "Post not found"
+            })
+        }
+            
+            res.send({
+                message: "Post was updated"
+            })
+    }).catch((err) => {
+        res.status(500).send({
+                message: err.message || "Some error while update post."
+            })
+    });
+}

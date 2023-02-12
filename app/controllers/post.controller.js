@@ -17,7 +17,14 @@ exports.findOne = (req, res) => {
 
     Post.findById(id)
     .then((result) => { //promise
+        if(!result) { //jika tidak ada
+            res.status(404).send({
+                message: "Post not found"
+            })
+        }
+            
         res.send(result)
+
     }).catch((err) => {
        res.status(500).send({
             message: err.message || "Some error while show post."
@@ -58,6 +65,27 @@ exports.update = (req, res) => {
             })
     }).catch((err) => {
         res.status(500).send({
+                message: err.message || "Some error while update post."
+            })
+    });
+}
+
+exports.delete = (req, res) => {
+    const id = req.params.id
+
+    Post.findOneAndRemove(id)
+    .then((result) => {
+        if(!result) {
+            res.status(404).send({
+                message: "Post not found"
+            })
+        }
+
+        res.send({
+            message: "Post was deleted"
+        })
+    }).catch((err) => {
+         res.status(500).send({
                 message: err.message || "Some error while update post."
             })
     });

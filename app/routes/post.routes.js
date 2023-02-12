@@ -4,6 +4,8 @@ module.exports = (app) => {
 
     //GET
     router.get('/', post.findAll)
+    //GET ONE
+    router.get('/:id', post.findOne)
     // POST
     router.post('/', post.create)
     

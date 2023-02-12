@@ -10,7 +10,9 @@ app.use(express.urlencoded({
 
     const db = require('./app/models/')
     db.mongoose.set('strictQuery', true);
-    db.mongoose.connect(db.url)
+    db.mongoose.connect(db.url, {
+        useFindAndModify: true
+    }) 
         .then(() => {
             console.log(`Database Connected!`);
         }).catch((err) => {
